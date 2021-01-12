@@ -65,6 +65,6 @@ func Print(w io.Writer, node *TreeNode, ns int, ch rune) {
 		fmt.Fprint(w, " ")
 	}
 	fmt.Fprintf(w, "%c:%v\n", ch, node.Data)
-	print(w, node.Left, ns+2, 'L')
-	print(w, node.Right, ns+2, 'R')
+	Print(w, node.Left, ns+2, 'L')
+	Print(w, node.Right, ns+2, 'R')
 }
