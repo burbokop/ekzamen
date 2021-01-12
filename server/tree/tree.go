@@ -24,7 +24,7 @@ func (t *BinaryTree) insert(data float64) *BinaryTree {
 	return t
 }
 
-func (n *BinaryNode) insert(data float64) {
+func (n *TreeNode) insert(data float64) {
 	if n == nil {
 		return
 	} else if data <= n.data {
