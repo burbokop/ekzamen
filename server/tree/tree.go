@@ -43,15 +43,13 @@ func (n *TreeNode) Insert(data float64) {
 }
 
 func MultiplyNode(node *TreeNode) float64 {
-	if node.Left == nil && node.Right == nil {
-		return node.Data
-	} else {
+	if node.Left != nil && node.Right != nil {
 		dl := MultiplyNode(node.Left)
 		dr := MultiplyNode(node.Right)
 
 		node.Data = dl * dr
-		return node.Data
 	}
+	return node.Data
 }
 
 func MultiplyTree(tree *BinaryTree) {

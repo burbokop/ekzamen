@@ -8,9 +8,11 @@ import (
 
 func main() {
 	binTree := &tree.BinaryTree{}
-	binTree.Insert(100.0)
+	binTree.Insert(100.0).Insert(32.2)
 
-	print(os.Stdout, binTree.Root, 0, 'M')
+	tree.MultiplyTree(binTree)
+
+	tree.Print(os.Stdout, binTree.Root, 0, 'M')
 
 	// Create the server.
 	//if err := StartServer(); err == nil {
