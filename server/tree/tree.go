@@ -42,6 +42,22 @@ func (n *TreeNode) insert(data float64) {
 	}
 }
 
+func multiplyNode(node *TreeNode) float64 {
+	if node.left == nil && node.right == nil {
+		return node.data
+	} else {
+		dl := multiply(node.left)
+		dr := multiply(node.right)
+
+		node.data = dl * dr
+		return node.data
+	}
+}
+
+func multiplyTree(tree *BinaryTree) {
+	multiplyNode(tree.root)
+}
+
 func print(w io.Writer, node *TreeNode, ns int, ch rune) {
 	if node == nil {
 		return
