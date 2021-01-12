@@ -9,7 +9,9 @@ import (
 func main() {
 	binTree := &tree.BinaryTree{}
 
-	binTree.Insert(4.0).Insert(2.0).Insert(8.0).Insert(10).Insert(2).Insert(2)
+	binTree.Insert(4.0, true).Insert(2.0, false).Insert(8.0, true).Insert(10, false)
+
+	tree.Print(os.Stdout, binTree.Root, 0, 'M')
 
 	tree.MultiplyTree(binTree)
 

@@ -15,29 +15,29 @@ type BinaryTree struct {
 	Root *TreeNode
 }
 
-func (t *BinaryTree) Insert(data float64) *BinaryTree {
+func (t *BinaryTree) Insert(data float64, leftBranch bool) *BinaryTree {
 	if t.Root == nil {
 		t.Root = &TreeNode{Data: data, Left: nil, Right: nil}
 	} else {
-		t.Root.Insert(data)
+		t.Root.Insert(data, leftBranch)
 	}
 	return t
 }
 
-func (n *TreeNode) Insert(data float64) {
+func (n *TreeNode) Insert(data float64, leftBranch bool) {
 	if n == nil {
 		return
-	} else if data <= n.Data {
+	} else if leftBranch {
 		if n.Left == nil {
 			n.Left = &TreeNode{Data: data, Left: nil, Right: nil}
 		} else {
-			n.Left.Insert(data)
+			n.Left.Insert(data, leftBranch)
 		}
 	} else {
 		if n.Right == nil {
 			n.Right = &TreeNode{Data: data, Left: nil, Right: nil}
 		} else {
-			n.Right.Insert(data)
+			n.Right.Insert(data, leftBranch)
 		}
 	}
 }
