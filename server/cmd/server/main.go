@@ -8,7 +8,8 @@ import (
 
 func main() {
 	binTree := &tree.BinaryTree{}
-	binTree.Insert(100.0).Insert(32.2)
+
+	binTree.Insert(4.0).Insert(2.0).Insert(8.0).Insert(10).Insert(2).Insert(2)
 
 	tree.MultiplyTree(binTree)
 

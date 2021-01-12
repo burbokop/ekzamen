@@ -43,12 +43,20 @@ func (n *TreeNode) Insert(data float64) {
 }
 
 func MultiplyNode(node *TreeNode) float64 {
-	if node.Left != nil && node.Right != nil {
-		dl := MultiplyNode(node.Left)
-		dr := MultiplyNode(node.Right)
+	var dl float64
+	var dr float64
 
-		node.Data = dl * dr
+	if node.Left != nil {
+		dl = MultiplyNode(node.Left)
+	} else {
+		dl = 1
 	}
+	if node.Right != nil {
+		dr = MultiplyNode(node.Right)
+	} else {
+		dr = 1
+	}
+	node.Data = dl * dr
 	return node.Data
 }
 
