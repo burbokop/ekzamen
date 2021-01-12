@@ -6,59 +6,59 @@ import (
 )
 
 type TreeNode struct {
-	left  *TreeNode
-	right *TreeNode
-	data  float64
+	Left  *TreeNode
+	Right *TreeNode
+	Data  float64
 }
 
 type BinaryTree struct {
-	root *TreeNode
+	Root *TreeNode
 }
 
-func (t *BinaryTree) insert(data float64) *BinaryTree {
-	if t.root == nil {
-		t.root = &TreeNode{data: data, left: nil, right: nil}
+func (t *BinaryTree) Insert(data float64) *BinaryTree {
+	if t.Root == nil {
+		t.Root = &TreeNode{Data: data, Left: nil, Right: nil}
 	} else {
-		t.root.insert(data)
+		t.Root.Insert(data)
 	}
 	return t
 }
 
-func (n *TreeNode) insert(data float64) {
+func (n *TreeNode) Insert(data float64) {
 	if n == nil {
 		return
-	} else if data <= n.data {
-		if n.left == nil {
-			n.left = &TreeNode{data: data, left: nil, right: nil}
+	} else if data <= n.Data {
+		if n.Left == nil {
+			n.Left = &TreeNode{Data: data, Left: nil, Right: nil}
 		} else {
-			n.left.insert(data)
+			n.Left.Insert(data)
 		}
 	} else {
-		if n.right == nil {
-			n.right = &TreeNode{data: data, left: nil, right: nil}
+		if n.Right == nil {
+			n.Right = &TreeNode{Data: data, Left: nil, Right: nil}
 		} else {
-			n.right.insert(data)
+			n.Right.Insert(data)
 		}
 	}
 }
 
-func multiplyNode(node *TreeNode) float64 {
-	if node.left == nil && node.right == nil {
-		return node.data
+func MultiplyNode(node *TreeNode) float64 {
+	if node.Left == nil && node.Right == nil {
+		return node.Data
 	} else {
-		dl := multiplyNode(node.left)
-		dr := multiplyNode(node.right)
+		dl := MultiplyNode(node.Left)
+		dr := MultiplyNode(node.Right)
 
-		node.data = dl * dr
-		return node.data
+		node.Data = dl * dr
+		return node.Data
 	}
 }
 
-func multiplyTree(tree *BinaryTree) {
-	multiplyNode(tree.root)
+func MultiplyTree(tree *BinaryTree) {
+	MultiplyNode(tree.Root)
 }
 
-func print(w io.Writer, node *TreeNode, ns int, ch rune) {
+func Print(w io.Writer, node *TreeNode, ns int, ch rune) {
 	if node == nil {
 		return
 	}
@@ -66,7 +66,7 @@ func print(w io.Writer, node *TreeNode, ns int, ch rune) {
 	for i := 0; i < ns; i++ {
 		fmt.Fprint(w, " ")
 	}
-	fmt.Fprintf(w, "%c:%v\n", ch, node.data)
-	print(w, node.left, ns+2, 'L')
-	print(w, node.right, ns+2, 'R')
+	fmt.Fprintf(w, "%c:%v\n", ch, node.Data)
+	print(w, node.Left, ns+2, 'L')
+	print(w, node.Right, ns+2, 'R')
 }
