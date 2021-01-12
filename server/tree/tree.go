@@ -46,8 +46,8 @@ func multiplyNode(node *TreeNode) float64 {
 	if node.left == nil && node.right == nil {
 		return node.data
 	} else {
-		dl := multiply(node.left)
-		dr := multiply(node.right)
+		dl := multiplyNode(node.left)
+		dr := multiplyNode(node.right)
 
 		node.data = dl * dr
 		return node.data
