@@ -56,6 +56,10 @@ func MultiplyNode(node *TreeNode) float64 {
 	} else {
 		dr = 1
 	}
+
+	if node.Left == nil && node.Right == nil {
+		return node.Data
+	}
 	node.Data = dl * dr
 	return node.Data
 }
